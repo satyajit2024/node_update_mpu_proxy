@@ -50,3 +50,5 @@ for pin in interrupt_pins:
 #     # Handle keyboard interrupt (Ctrl+C)
 #     GPIO.cleanup()
 #     print("\nProgram terminated by user.")
+
+count_pulse()
