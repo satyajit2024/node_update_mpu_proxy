@@ -54,3 +54,8 @@ count_pulse(17)
 count_pulse(23)
 count_pulse(27)
 count_pulse(18)
+
+count_pulse(17)
+count_pulse(23)
+count_pulse(27)
+count_pulse(18)
