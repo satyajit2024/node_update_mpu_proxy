@@ -36,23 +36,22 @@ def count_pulse(channel):
     #time.sleep(0.1)
 
 # Set up GPIO pins for input with pull-up resistors and add event detection
-# for pin in interrupt_pins:
-#     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-#     GPIO.add_event_detect(pin, GPIO.FALLING, callback=count_pulse)
 
-# try:
-#     print("Waiting for interrupts...")
-#     # while True:
-#     time.sleep(10)
+def hello():
+    for pin in interrupt_pins:
+        GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.add_event_detect(pin, GPIO.FALLING, callback=count_pulse)
 
-# except KeyboardInterrupt:
-#     # Handle keyboard interrupt (Ctrl+C)
-#     GPIO.cleanup()
-#     print("\nProgram terminated by user.")
+    try:
+        print("Waiting for interrupts...")
+        # while True:
+        time.sleep(10)
 
-for pin in interrupt_pins:
-    GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.add_event_detect(pin, GPIO.FALLING, callback=count_pulse)
+    except KeyboardInterrupt:
+        # Handle keyboard interrupt (Ctrl+C)
+        GPIO.cleanup()
+        print("\nProgram terminated by user.")
 
-while True:
-    time.sleep(1)
+
+if __name__ == "__main__":
+    hello()
