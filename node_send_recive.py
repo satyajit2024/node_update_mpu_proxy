@@ -10,7 +10,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad , unpad
 from Crypto.Random import get_random_bytes
 from datetime import datetime
-# from mpu import mpu_data
+from mpu import mpu_data
 # from proxi import
 
 node_status = None
@@ -117,14 +117,21 @@ class LoRaSender(LoRaCommunicationBase):
                     main("r")
                     print("Call the Recive.....")
                     break
-                current = round(uniform(2.3, 2.8), 2)
-                voltage = round(uniform(220.0, 230.0), 2)
-                rpm = round(uniform(300.0, 310.0), 2)
-                mpu = round(uniform(3.3, 3.8), 2)
+                # current = round(uniform(2.3, 2.8), 2)
+                # voltage = round(uniform(220.0, 230.0), 2)
+                # rpm = round(uniform(300.0, 310.0), 2)
+                # mpu = round(uniform(3.3, 3.8), 2)
+
+                mpu_data = mpu_data()
+                split_values = [data for data in mpu_data.split('/')]
+                AcX = split_values[0]
+                AcY = split_values[1]
+                AcZ = split_values[2]
+                
                 global node_status
                 status = node_status
                 node_id = self.sending_gateway.id
-                message = f"{current}/{voltage}/{rpm}/{mpu}/{node_id}/{status}"
+                message = f"{AcX}/{AcY}/{AcZ}/{node_id}/{status}"
                 float_bytes = message.encode('utf-8')
 
                 encrypted_payload = cipher.encrypt(pad(float_bytes, AES.block_size))

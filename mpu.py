@@ -16,7 +16,7 @@ bus.write_byte_data(MPU9250_ADDRESS, 0x6B, 0)
 
 # Initial calibration: Read and discard initial values
 calibration_values = bus.read_i2c_block_data(MPU9250_ADDRESS, ACCEL_XOUT_H, 6)
-print("Calibration Values:", calibration_values)
+# print("Calibration Values:", calibration_values)
 
 def mpu_data():
     # Read accelerometer data
@@ -39,7 +39,7 @@ def mpu_data():
     AcZ = AcZ * scale_factor
 
     # Print the raw accelerometer data and scaled values
-    print(f"Raw Acceleration - X: {accel_data[0]}, Y: {accel_data[2]}, Z: {accel_data[4]}")
-    print(f"Scaled Acceleration - X: {AcX:.2f} g, Y: {AcY:.2f} g, Z: {AcZ:.2f} g")
+    # print(f"Raw Acceleration - X: {accel_data[0]}, Y: {accel_data[2]}, Z: {accel_data[4]}")
+    # print(f"Scaled Acceleration - X: {AcX:.2f} g, Y: {AcY:.2f} g, Z: {AcZ:.2f} g")
     return f"{AcX:.2f}/{AcY:.2f}/{AcZ:.2f}"
 
