@@ -1,15 +1,19 @@
 from proxi import hello
 import redis
 import threading
+import time
 
 r = redis.Redis(host="localhost", port=6379, db=0, decode_responses=True)
 
 
 def new_function():
-    sens1 = r.get("sensor1_rpm")
-    sens2 = r.get("sensor2_rpm")
-    print(sens1)
-    print(sens2)
+    while True:
+        sens1 = r.get("sensor1_rpm")
+        sens2 = r.get("sensor2_rpm")
+        print(sens1)
+        print(sens2)
+        time.sleep(1)
+        
 
 
 if __name__ == "__main__":
