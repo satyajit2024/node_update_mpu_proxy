@@ -26,12 +26,12 @@ def count_pulse(channel):
         rpm = (pulses[sensor_index] * 60.0) / ((current_time - last_times[sensor_index]) / 1000.0) / pulses_per_revolution
 
         print(f"Sensor {sensor_index + 1} RPM: {round(rpm,2)}")
-        # sense_num = sensor_index + 1
-        # with open ('data.json','r') as file:
-        #     data = json.load(file)
-        # data[sense_num] = round(rpm,2)
-        # with open('data.json','w') as file:
-        #     json.dump(data,file)
+        sense_num = sensor_index + 1
+        with open ('data.json','r') as file:
+            data = json.load(file)
+        data[sense_num] = round(rpm,2)
+        with open('data.json','w') as file:
+            json.dump(data,file)
         pulses[sensor_index] = 0
         last_times[sensor_index] = current_time
 
@@ -48,7 +48,7 @@ def hello():
     try:
         print("Waiting for interrupts...")
         while True:
-            time.sleep(10)
+            time.sleep(1)
 
     except KeyboardInterrupt:
         # Handle keyboard interrupt (Ctrl+C)
