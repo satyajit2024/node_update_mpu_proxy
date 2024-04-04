@@ -1,6 +1,9 @@
 import RPi.GPIO as GPIO
 import time
 import json
+import redis
+
+r = redis.Redis(host="localhost",port=6379,db=0,decode_responses=True)
 
 # Set up GPIO mode
 GPIO.setmode(GPIO.BCM)
@@ -23,12 +26,12 @@ def count_pulse(channel):
         rpm = (pulses[sensor_index] * 60.0) / ((current_time - last_times[sensor_index]) / 1000.0) / pulses_per_revolution
 
         print(f"Sensor {sensor_index + 1} RPM: {round(rpm,2)}")
-        sense_num = sensor_index + 1
-        with open ('data.json','r') as file:
-            data = json.load(file)
-        data[sense_num] = round(rpm,2)
-        with open('data.json','w') as file:
-            json.dump(data,file)
+        # sense_num = sensor_index + 1
+        # with open ('data.json','r') as file:
+        #     data = json.load(file)
+        # data[sense_num] = round(rpm,2)
+        # with open('data.json','w') as file:
+        #     json.dump(data,file)
         pulses[sensor_index] = 0
         last_times[sensor_index] = current_time
 
