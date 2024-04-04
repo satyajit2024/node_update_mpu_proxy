@@ -10,7 +10,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad , unpad
 from Crypto.Random import get_random_bytes
 from datetime import datetime
-from mpu import mpu_data
+# from mpu import mpu_data
 # from proxi import
 
 node_status = None
