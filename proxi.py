@@ -51,4 +51,4 @@ for pin in interrupt_pins:
 #     GPIO.cleanup()
 #     print("\nProgram terminated by user.")
 
-count_pulse()
+count_pulse(GPIO.FALLING)
