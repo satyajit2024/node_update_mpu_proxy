@@ -50,12 +50,8 @@ def count_pulse(channel):
 #     GPIO.cleanup()
 #     print("\nProgram terminated by user.")
 
-count_pulse(17)
-count_pulse(23)
-count_pulse(27)
-count_pulse(18)
+for pin in interrupt_pins:
+    count_pulse(pin)
 
-count_pulse(17)
-count_pulse(23)
-count_pulse(27)
-count_pulse(18)
+while True:
+    time.sleep(1)
