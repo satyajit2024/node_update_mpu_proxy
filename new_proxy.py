@@ -10,8 +10,8 @@ def new_function():
     while True:
         sens1 = r.get("sensor1_rpm")
         sens2 = r.get("sensor2_rpm")
-        print(sens1)
-        print(sens2)
+        print("senser1 data......",sens1)
+        print("senser2 data......",sens2)
         time.sleep(1)
         
 
