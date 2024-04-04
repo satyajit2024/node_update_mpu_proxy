@@ -51,7 +51,8 @@ def count_pulse(channel):
 #     print("\nProgram terminated by user.")
 
 for pin in interrupt_pins:
-    count_pulse(pin)
+    GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.add_event_detect(pin, GPIO.FALLING, callback=count_pulse)
 
 while True:
     time.sleep(1)
