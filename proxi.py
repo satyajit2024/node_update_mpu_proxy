@@ -17,6 +17,7 @@ def count_pulse(channel):
     global pulses, last_times
 
     sensor_index = interrupt_pins.index(channel)
+    print(f"sensor_index.......{sensor_index}")
     current_time = time.time() * 1000  # Convert seconds to milliseconds
 
     if current_time - last_times[sensor_index] >= 1000:
