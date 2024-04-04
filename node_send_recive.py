@@ -143,6 +143,7 @@ class LoRaSender(LoRaCommunicationBase):
                 self.LoRa.write([counter], 1)
                 self.LoRa.endPacket()
 
+                print(f"message.....{message}")
                 print(f"Node ID: {node_id}, Message: {encrypted_payload}, Counter: {counter}")
 
                 print(type(message))
