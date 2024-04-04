@@ -40,12 +40,12 @@ for pin in interrupt_pins:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.add_event_detect(pin, GPIO.FALLING, callback=count_pulse)
 
-# try:
-#     print("Waiting for interrupts...")
-#     while True:
-#         time.sleep(1)
+try:
+    print("Waiting for interrupts...")
+    # while True:
+    time.sleep(1)
 
-# except KeyboardInterrupt:
-#     # Handle keyboard interrupt (Ctrl+C)
-#     GPIO.cleanup()
-#     print("\nProgram terminated by user.")
+except KeyboardInterrupt:
+    # Handle keyboard interrupt (Ctrl+C)
+    GPIO.cleanup()
+    print("\nProgram terminated by user.")
