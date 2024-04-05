@@ -11,7 +11,9 @@ from Crypto.Util.Padding import pad , unpad
 from Crypto.Random import get_random_bytes
 from datetime import datetime
 from mpu import mpu_data
-# from proxi import
+import redis
+redis_server = redis.Redis(host="localhost",port=6379,db=0,decode_responses=True)
+
 
 node_status = None
 
@@ -35,6 +37,7 @@ class LoRaSender(LoRaCommunicationBase):
         self.stoping = False
 
     def send_messages(self,args=None):
+        global redis_server
         self.running = True
         frequency = self.sending_gateway.frequency if args == "conf" else float(self.sending_gateway.conf_frequency) 
         bandwidth = self.sending_gateway.bandwidth
@@ -127,11 +130,17 @@ class LoRaSender(LoRaCommunicationBase):
                 AcX = split_values[0]
                 AcY = split_values[1]
                 AcZ = split_values[2]
+
+                sensone_1 = redis_server.get("sensor1_rpm")
+                sensone_2 = redis_server.get("sensor2_rpm")
+                sensone_3 = redis_server.get("sensor3_rpm")
+                sensone_4 = redis_server.get("sensor4_rpm")
+                sensone_5 = redis_server.get("sensor5_rpm")
                 
                 global node_status
                 status = node_status
                 node_id = self.sending_gateway.id
-                message = f"{AcX}/{AcY}/{AcZ}/{node_id}/{status}"
+                message = f"{AcX}/{AcY}/{AcZ}/{sensone_1}/{sensone_2}/{sensone_3}/{sensone_4}/{sensone_5}{node_id}/{status}"
                 float_bytes = message.encode('utf-8')
 
                 encrypted_payload = cipher.encrypt(pad(float_bytes, AES.block_size))

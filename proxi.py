@@ -41,7 +41,7 @@ def count_pulse(channel):
 
 # Set up GPIO pins for input with pull-up resistors and add event detection
 
-def hello():
+def run_proxy():
     for pin in interrupt_pins:
         GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.add_event_detect(pin, GPIO.FALLING, callback=count_pulse)
