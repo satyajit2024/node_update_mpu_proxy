@@ -43,3 +43,10 @@ def mpu_data():
     # print(f"Scaled Acceleration - X: {AcX:.2f} g, Y: {AcY:.2f} g, Z: {AcZ:.2f} g")
     return f"{AcX:.2f}/{AcY:.2f}/{AcZ:.2f}"
 
+
+# from random import uniform
+# def mpu_data():
+#     AcX = round(uniform(10.0,12.0),2)
+#     AcY = round(uniform(12.0,14.0),2)
+#     AcZ = round(uniform(14.0,16.0),2)
+#     return f"{AcX:.2f}/{AcY:.2f}/{AcZ:.2f}"

@@ -125,8 +125,9 @@ class LoRaSender(LoRaCommunicationBase):
                 # rpm = round(uniform(300.0, 310.0), 2)
                 # mpu = round(uniform(3.3, 3.8), 2)
 
-                mpu_data = mpu_data()
-                split_values = [data for data in mpu_data.split('/')]
+                mpu_value = mpu_data()
+                split_values = [data for data in mpu_value.split('/')]
+                
                 AcX = split_values[0]
                 AcY = split_values[1]
                 AcZ = split_values[2]

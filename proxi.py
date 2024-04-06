@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+"""import RPi.GPIO as GPIO
 import time
 import json
 import redis
@@ -55,3 +55,4 @@ def run_proxy():
         # Handle keyboard interrupt (Ctrl+C)
         GPIO.cleanup()
         print("\nProgram terminated by user.")
+"""
