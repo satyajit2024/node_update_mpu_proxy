@@ -18,7 +18,7 @@ class ConfData:
             return data
             
     def get_mac_address(self):
-        mac = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0,2*6,2)][::-1])
+        mac = "aa:a8:a2:88:23:8f"
         return mac
         
 
