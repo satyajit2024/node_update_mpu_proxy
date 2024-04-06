@@ -17,4 +17,4 @@ RUN pip install spidev gpiozero RPi.GPIO pycryptodome
 COPY . /app
 
 # Command to run when the container starts
-CMD [ "python", "./node_send_recive.py" ]
+CMD [ "python", "./new_proxy.py" ]
