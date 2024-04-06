@@ -11,7 +11,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-RUN pip install spidev redis gpiozero RPi.GPIO pycryptodome
+RUN pip install spidev redis gpiozero RPi.GPIO pycryptodome smbus
 
 # Copy the Python script and any other required files into the container
 COPY . /app
