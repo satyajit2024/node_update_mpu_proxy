@@ -3,7 +3,7 @@ import uuid
 
 class ConfData:
     def __init__(self):
-        self.gateWayId = self.get_json_data().get("gatewayId", "")
+        self.gateWayId = self.get_json_data().get("gatewayId", "aa:a8:a2:88:23:8f")
         self.encripted_key = self.get_json_data().get("encripted_key" , "1234567812345678")
         self.conf_frequency = self.get_json_data().get("frequency" , 432.0)
 
@@ -40,7 +40,7 @@ class LoraGateWayDownLink(ConfData):
     def __init__(self):
         super().__init__()
         self.id = self.get_mac_address()
-        self.frequency = 433
+        self.frequency = 433.0
         self.bandwidth = 125
         self.sf = 7
         self.txPower = 17
