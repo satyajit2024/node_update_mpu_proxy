@@ -153,14 +153,14 @@ class LoRaSender(LoRaCommunicationBase):
                 self.LoRa.write([counter], 1)
                 self.LoRa.endPacket()
 
-                print(f"message.....{message}")
-                print(f"Node ID: {node_id}, Message: {encrypted_payload}, Counter: {counter}")
+                print(f"message.....{message} \n")
+                print(f"Node ID: {node_id}, Message: {encrypted_payload}, Counter: {counter} \n")
 
                 print(type(message))
 
                 self.LoRa.wait()
                 
-                print("Transmit time: {0:0.2f} ms | Data rate: {1:0.2f} byte/s".format(self.LoRa.transmitTime(), self.LoRa.dataRate()))
+                print("Transmit time: {0:0.2f} ms | Data rate: {1:0.2f} byte/s \n".format(self.LoRa.transmitTime(), self.LoRa.dataRate()))
 
                 if time.time() - start_time >= 60 :
                     time.sleep(1)
