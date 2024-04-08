@@ -166,7 +166,7 @@ class LoRaSender(LoRaCommunicationBase):
                     time.sleep(1)
                     self.LoRa.reset()
                     time.sleep(1)
-                    print("Start Lora Reciving.....")
+                    # print("Start Lora Reciving.....")
                     # main("r")
                     # break
 
@@ -269,12 +269,17 @@ class LoRaReceiver(LoRaCommunicationBase):
                     print("Packet status: RSSI = {0:0.2f} dBm | SNR = {1:0.2f} dB".format(self.LoRa.packetRssi(), self.LoRa.snr()))
 
                     time.sleep(1)
-                    if self.stoping:
-                        self.running = False 
-                        self.LoRa.reset()
-                        print("Recive Stop")
-                        time.sleep(1)
-                        break
+                    self.LoRa.reset()
+                    time.sleep(1)
+                    print("Start Lora Reciving.....")
+                    main("r")
+                    break
+                    # if self.stoping:
+                    #     self.running = False 
+                    #     self.LoRa.reset()
+                    #     print("Recive Stop")
+                    #     time.sleep(1)
+                    #     break
                 except Exception as e:
                     print(f"Recive Conf Error : {str(e)}")
                     time.sleep(1)
