@@ -167,8 +167,8 @@ class LoRaSender(LoRaCommunicationBase):
                     self.LoRa.reset()
                     time.sleep(1)
                     print("Start Lora Reciving.....")
-                    main("r")
-                    break
+                    # main("r")
+                    # break
 
                 if self.stoping:
                     self.running = False
@@ -184,8 +184,8 @@ class LoRaSender(LoRaCommunicationBase):
                     self.LoRa.reset()
                     time.sleep(1)
                     print("Start Lora Reciving.....")
-                    main("r")
-                    break
+                    # main("r")
+                    # break
                 print(f"Send Error : {str(e)}")
                 time.sleep(1)
 
