@@ -11,11 +11,13 @@ class ConfData:
         try:
             with open("conf_lora.json", "r") as file:
                 data = json.load(file)
+                print("Loaded JSON data:", data)  # Add this line for debug
                 return data
         except Exception as e:
             data = {}
-            print(str(e))
+            # print(str(e))
             return data
+            
             
     def get_mac_address(self):
         mac = "aa:a8:a2:88:23:8f"
