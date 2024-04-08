@@ -117,9 +117,9 @@ class LoRaSender(LoRaCommunicationBase):
                 if current_minute%2 == 0:
                     self.LoRa.reset()
                     time.sleep(1)
-                    main("r")
-                    print("Call the Recive.....")
-                    break
+                    # main("r")
+                    # print("Call the Recive.....")
+                    # break
                 # current = round(uniform(2.3, 2.8), 2)
                 # voltage = round(uniform(220.0, 230.0), 2)
                 # rpm = round(uniform(300.0, 310.0), 2)
