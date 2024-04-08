@@ -62,7 +62,8 @@ from random import uniform
 r = redis.Redis(host="localhost",port=6379,db=0,decode_responses=True)
 senser_list = [1,2,3,4,5]
 
-while True:
-    for i in senser_list:
-        sensor_data = round(uniform(38.0,220.0),2)
-        r.set(f"sensor{i}_rpm",sensor_data)
+def run_proxy():
+    while True:
+        for i in senser_list:
+            sensor_data = round(uniform(38.0,220.0),2)
+            r.set(f"sensor{i}_rpm",sensor_data)
