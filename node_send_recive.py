@@ -132,11 +132,11 @@ class LoRaSender(LoRaCommunicationBase):
                 AcY = split_values[1]
                 AcZ = split_values[2]
 
-                sensone_1 = redis_server.get("sensor1_rpm")
-                sensone_2 = redis_server.get("sensor2_rpm")
-                sensone_3 = redis_server.get("sensor3_rpm")
-                sensone_4 = redis_server.get("sensor4_rpm")
-                sensone_5 = redis_server.get("sensor5_rpm")
+                sensone_1 = redis_server.get("sensor1_rpm") if redis_server.get("sensor1_rpm") else 0.0   
+                sensone_2 = redis_server.get("sensor2_rpm") if redis_server.get("sensor2_rpm") else 0.0  
+                sensone_3 = redis_server.get("sensor3_rpm") if redis_server.get("sensor3_rpm") else 0.0  
+                sensone_4 = redis_server.get("sensor4_rpm") if redis_server.get("sensor4_rpm") else 0.0  
+                sensone_5 = redis_server.get("sensor5_rpm") if redis_server.get("sensor5_rpm") else 0.0  
                 
                 global node_status
                 status = node_status
