@@ -142,11 +142,11 @@ class LoRaSender(LoRaCommunicationBase):
                 status = node_status
                 node_id = self.sending_gateway.id
                 message = f"{AcX}/{AcY}/{AcZ}/{sensone_1}/{sensone_2}/{sensone_3}/{sensone_4}/{sensone_5}{node_id}/{status}"
-                float_bytes = message.encode('utf-8')
+                # float_bytes = message.encode('utf-8')
 
-                encrypted_payload = cipher.encrypt(pad(float_bytes, AES.block_size))
+                # encrypted_payload = cipher.encrypt(pad(float_bytes, AES.block_size))
 
-                message_list = [ord(char) for char in str(encrypted_payload)]
+                message_list = [ord(char) for char in str(message)]
                 
                 self.LoRa.beginPacket()
                 self.LoRa.write(message_list, len(message_list))
@@ -154,7 +154,7 @@ class LoRaSender(LoRaCommunicationBase):
                 self.LoRa.endPacket()
 
                 print(f"message.....{message} \n")
-                print(f"Node ID: {node_id}, Message: {encrypted_payload}, Counter: {counter} \n")
+                print(f"Node ID: {node_id}, Message: {message}, Counter: {counter} \n")
 
                 print(type(message))
 
